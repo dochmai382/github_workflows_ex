@@ -12,7 +12,28 @@ async function makeIssue() {
         const quoteData = await quoteResponse.json();
         quoteText = `"${quoteData[0].q}" - ${quoteData[0].a}`;
     }
+    // Markdown을 사용하여 이슈 본문 꾸미기
+    const markdownBody = `
+# 오늘의 명언
 
+> **"${quoteText}"**  
+> _- ${quoteData[0].a}_
+
+---
+
+## 추가 정보
+- 이 명언은 ZenQuotes API에서 가져왔습니다.
+- ZenQuotes API는 **무료**로 제공됩니다.
+  
+### 사용 예시
+\`\`\`javascript
+console.log("Life is what happens while you're busy making other plans.");
+\`\`\`
+
+![ZenQuotes Logo](https://zenquotes.io/logo.png)
+`;
+
+    // GitHub 이슈 생성
     const response = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/issues`, {
         method: 'POST',
         headers: {
@@ -20,7 +41,7 @@ async function makeIssue() {
         },
         body: JSON.stringify({
             title: "오늘의 명언", // 이슈 제목
-            body: quoteText, // 명언을 이슈 본문에 넣기
+            body: markdownBody, // Markdown으로 꾸민 본문
         })
     });
 
