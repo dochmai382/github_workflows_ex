@@ -18,7 +18,7 @@ async function makeIssue() {
     const markdownBody = `
 # 오늘의 명언
 
-> **"${quoteText}"**  
+> **${quoteText}**  
 > _- ${quoteData[0].a}_
 
 ---
@@ -31,8 +31,6 @@ async function makeIssue() {
 \`\`\`javascript
 console.log("Life is what happens while you're busy making other plans.");
 \`\`\`
-
-![ZenQuotes Logo](https://zenquotes.io/logo.png)
 `;
 
     // GitHub 이슈 생성
