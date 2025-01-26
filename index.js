@@ -7,11 +7,13 @@ async function makeIssue() {
     const apiUrl = "https://zenquotes.io/api/quotes/";
     const quoteResponse = await fetch(apiUrl);
     let quoteText = "명언을 가져오는 데 실패했습니다."; // 기본 값
+    let quoteData;  // quoteData 변수 선언
 
     if (quoteResponse.ok) {
-        const quoteData = await quoteResponse.json();
-        quoteText = `"${quoteData[0].q}" - ${quoteData[0].a}`;
+        quoteData = await quoteResponse.json();  // quoteData에 API 응답을 저장
+        quoteText = `"${quoteData[0].q}"`;  // 명언 가져오기
     }
+  
     // Markdown을 사용하여 이슈 본문 꾸미기
     const markdownBody = `
 # 오늘의 명언
