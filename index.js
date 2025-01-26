@@ -10,7 +10,7 @@ async function makeIssue() {
 
     if (quoteResponse.ok) {
         const quoteData = await quoteResponse.json();
-        quoteText = `"${quoteData.q}" - ${quoteData.a}`;
+        quoteText = `"${quoteData[0].q}" - ${quoteData[0].a}`;
     }
 
     const response = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/issues`, {
