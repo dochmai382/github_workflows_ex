@@ -21,16 +21,6 @@ async function makeIssue() {
 > **${quoteText}**  
 > _- ${quoteData[0].a}_
 
----
-
-## 추가 정보
-- 이 명언은 ZenQuotes API에서 가져왔습니다.
-- ZenQuotes API는 **무료**로 제공됩니다.
-  
-### 사용 예시
-\`\`\`javascript
-console.log("Life is what happens while you're busy making other plans.");
-\`\`\`
 `;
 
     // GitHub 이슈 생성
