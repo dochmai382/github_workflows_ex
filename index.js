@@ -4,7 +4,8 @@ async function makeIssue() {
     const REPO = "github_workflows_ex"; // 현재 리포지터리 이름
     
     // 명언을 가져오는 부분
-    const quoteResponse = await fetch('https://api.quotable.io/random');
+    const apiUrl = "https://zenquotes.io/api/quotes/";
+    const quoteResponse = await fetch(apiUrl);
     let quoteText = "명언을 가져오는 데 실패했습니다."; // 기본 값
 
     if (quoteResponse.ok) {
