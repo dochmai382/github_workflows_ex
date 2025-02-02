@@ -3,7 +3,7 @@ name: schedule
 on:
   workflow_dispatch:
   schedule:
-    - cron: '* 15 * * *'
+    - cron: '0 15 * * *'  # 한국 시간 자정 (UTC 기준 오후 3시)
       # https://crontab.guru/
 
 jobs:
